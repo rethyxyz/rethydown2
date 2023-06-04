@@ -39,7 +39,7 @@ Imagine you have an `index.rd` file that is looking for two template files named
 
 <img src="diagram.png">
 
-<small>Depicts an `rd` structure <i>pre-</i> and <i>post-</i> conversion.</small>
+Image depicts an `rd` structure *pre-* and *post-* conversion.
 
 `index.rd` is your index page. `project1.rd` and `project2.rd` are your dynamic files that hold your dynamic project links. p1link1, p2link1, ... are the dynamic links found in the `project1.rd` and `project2.rd` script files. Each point to `title.rd` and `description.rd` files. `title.rd` and `description.rd` does not contain any dynamic processing, holding only a string each.
 
