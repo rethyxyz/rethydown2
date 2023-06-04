@@ -32,14 +32,14 @@ I use a sort of templates + variables method consistently. There are likely othe
 
 ### Template + Variable Combo
 
-Templates and variables are used per project. Variable files, such as `projecttitle.rd`, would be placed directory in a project directory, such as `projects/rethydown2/projecttitle.rd`. `projecttitle.rd` would contain something like `rethydown2`, or an alternate title. You would do the same thing for projectdesc.rd, etc. These templates would then be sourced using the `rethydown2` invocation tokens I mentioned above and in the screenshot. It's a simple concept, but it's effective if you want to avoid something such as PHP.
+Templates and variables are used per project. Variable files, such as `projecttitle.rd`, would be placed directory in a project directory, such as `projects/rethydown2/projecttitle.rd`. `projecttitle.rd` would contain something like `rethydown2`, or an alternate title. You would do the same thing for `projectdesc.rd`, etc. These templates would then be sourced using the `rethydown2` invocation tokens I mentioned above and in the screenshot. It's a simple concept, but it's effective if you want to avoid something such as PHP.
 
 ### Template Nesting
-Imagine you have an `index.rd` file that is looking for two template files named projects1.rd and projects2.rd, each containing a list of &lt;a href&gt; tags of your project files. Imagine you want to have your project links look for variables for dynamic titles and descriptions. This is possible with a bit of process order hacking. Here's a diagram better explaning this methodology: 
+Imagine you have an `index.rd` file that is looking for two template files named `projects1.rd` and `projects2.rd`, each containing a list of &lt;a href&gt; tags of your project files. Imagine you want to have your project links look for variables for dynamic titles and descriptions. This is possible with a bit of process order hacking. Here's a diagram better explaning this methodology: 
 
 <img src="diagram.png">
 
-Image depicts an `rd` structure *pre-* and *post-* conversion.
+Image depicts an `rd` program call structure *pre-* and *post-* conversion.
 
 `index.rd` is your index page. `project1.rd` and `project2.rd` are your dynamic files that hold your dynamic project links. p1link1, p2link1, ... are the dynamic links found in the `project1.rd` and `project2.rd` script files. Each point to `title.rd` and `description.rd` files. `title.rd` and `description.rd` does not contain any dynamic processing, holding only a string each.
 
