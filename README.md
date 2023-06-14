@@ -50,3 +50,6 @@ To ensure `index.rd` is processed last, and uses the static content, you must pr
 `rethydown2` will spit out `project1.html` and `project2.html` as individual html files. there will no longer be any sort of dynamic scripting held within once they're output as `.html` files.
 
 Ensure that `index.rd` is sourcing the `project1.html` and `project2.html` files, rather than the `.rd` variants.
+
+# TODO
+- [ ] Fix encoding issue when converting files containing Cyrillic characters.
