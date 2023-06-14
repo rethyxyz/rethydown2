@@ -4,7 +4,7 @@ import sys
 
 MASTER_FILENAME = "rethydown2"
 DESCRIPTION = "A template-based static site generator (v2.0)."
-PROJECT_LINK = "https://rethy.xyz/projects/rethydown2"
+PROJECT_LINK = "https://github.com/rethyxyz/rethydown2"
 
 OPEN_TOKEN = "{|"
 CLOSE_TOKEN = "|}"
@@ -36,6 +36,8 @@ def Main():
     createHead = False
     createBody = False
 
+    outputFileNames = []
+
     # Basic iterators.
     lineCounter = 0
     fileCounter = 0
@@ -59,7 +61,12 @@ def Main():
 
         # Read all lines of inputFileName as inputFileLines variable.
         with open(inputFileName, "r") as filePointer:
-            inputFileLines = filePointer.read().splitlines()
+            try:
+                inputFileLines = filePointer.read().splitlines()
+            except UnicodeDecodeError:
+                print(f"[ERROR] Decode error on \"{inputFileName}\".")
+                print("")
+                continue
 
         # --------------- #
         # LOOP FILE LINES #
@@ -115,9 +122,11 @@ def Main():
 
         # If the output file already exists.
         if (os.path.isfile(outputFileName)):
-            print(f"[INFO] Overwritting {outputFileName}")
+            print(f"[WARNING] Overwritting {outputFileName}")
         else:
-            print(f"[INFO] Creating {outputFileName}")
+            print(f"[WARNING] Creating {outputFileName}")
+
+        outputFileNames.append(outputFileName)
 
         # lineCounter back to zero.
         lineCounter = 0
@@ -136,7 +145,8 @@ def Main():
         fileCounter += 1
 
     # Print files processed.
-    print(f"Total files processed: {fileCounter}.")
+    print(f"[WARNING] Total files processed: {fileCounter}.")
+    print(f"[WARNING] {outputFileNames}.")
 
 if __name__ == "__main__":
     Main()
