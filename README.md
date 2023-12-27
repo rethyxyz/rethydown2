@@ -53,3 +53,5 @@ Ensure that `index.rd` is sourcing the `project1.html` and `project2.html` files
 
 # TODO
 - [ ] Fix encoding issue when converting files containing Cyrillic characters.
+- [ ] Check if compfile.rd exists in current directory.
+    - This is used as an input file list (in order of declaration)
